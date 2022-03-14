@@ -6,9 +6,9 @@ on:
       - test3   
 
 jobs:
+
   JSDocs: 
     name : Jsdocs generator
-    runs-on: ubuntu-latest 
     uses: andstor/jsdoc-action@v1
     with:
       source_dir: ./lib
