@@ -6,7 +6,9 @@ on:
       - test3   
 
 jobs:
-  JSDocs:  
+  JSDocs: 
+    name : Jsdocs generator
+    runs-on: ubuntu-latest 
     uses: andstor/jsdoc-action@v1
     with:
       source_dir: ./lib
@@ -14,6 +16,7 @@ jobs:
       output_dir: ./out
         
   pull-request:
+    name : create pull request
     needs: JSDocs
     runs-on: ubuntu-latest
     steps:
