@@ -35,7 +35,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Create pull request
+    # - name: Create pull request
       uses: paygoc6/action-pull-request-another-repo@v1.0.1
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
