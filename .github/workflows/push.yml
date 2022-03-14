@@ -33,6 +33,11 @@ jobs:
         source_dir: ./lib
         recurse: true
         output_dir: out
+    - name: Set outputs
+      id: vars
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+    - name: Check outputs
+      run: echo ${{ steps.vars.outputs.sha_short }}
     - name: Create pull request to test
       uses: paygoc6/action-pull-request-another-repo@v1.0.1
       env:
@@ -42,7 +47,7 @@ jobs:
         destination_repo: 'akshatgarg12/talawa-docs'
         destination_folder: 'docs/talawa-api'
         destination_base_branch: 'master'
-        destination_head_branch: ${{ github.sha }}
+        destination_head_branch: ${{ steps.vars.outputs.sha_short }}
         user_email: 'akshatarungarg78@gmail.com'
         user_name: 'akshatgarg12'
    
