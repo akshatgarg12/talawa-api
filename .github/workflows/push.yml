@@ -25,15 +25,16 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
     - name : "Run JSDocs"   
       uses: andstor/jsdoc-action@v1
       with:
-        source_dir: lib
+        source_dir: ./lib
         recurse: true
         output_dir: out
 
-    - name: Checkout
-      uses: actions/checkout@v2
+   
 
     # - name: Create pull request
     #   uses: paygoc6/action-pull-request-another-repo@v1.0.1
