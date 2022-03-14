@@ -24,7 +24,6 @@ jobs:
 ##############################################################################
   pull-request:
     name : create pull request
-    needs: JSDocs
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -42,7 +41,7 @@ jobs:
         destination_head_branch: 'master'
         user_email: 'akshatarungarg78@gmail.com'
         user_name: 'akshatgarg12'
-        
+
   Code-Coverage:
     name: Testing Application
     runs-on: ubuntu-latest
