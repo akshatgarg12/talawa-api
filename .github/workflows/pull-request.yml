@@ -65,7 +65,11 @@ jobs:
 
       - name : "Run JSDocs"   
         if: env.RUN_JSDOCS == 'True'
-        run: echo "Run JSdocs :${{ env.RUN_JSDOCS }}"
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./lib
+          recurse: true
+          output_dir: ./out
 
   Code-Coverage:
     name: Testing Application
