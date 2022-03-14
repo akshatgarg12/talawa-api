@@ -28,9 +28,9 @@ jobs:
     - name : "Run JSDocs"   
       uses: andstor/jsdoc-action@v1
       with:
-        source_dir: ./lib
+        source_dir: lib
         recurse: true
-        output_dir: ./out
+        output_dir: out
 
     - name: Checkout
       uses: actions/checkout@v2
