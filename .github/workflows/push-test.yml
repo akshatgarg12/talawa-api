@@ -6,13 +6,12 @@ on:
       - test3   
 
 jobs:
-  JSDocs:
-    - name : "Run JSDocs"   
-      uses: andstor/jsdoc-action@v1
-      with:
-        source_dir: ./lib
-        recurse: true
-        output_dir: ./out
+  JSDocs:  
+    uses: andstor/jsdoc-action@v1
+    with:
+      source_dir: ./lib
+      recurse: true
+      output_dir: ./out
         
   pull-request:
     needs: JSDocs
