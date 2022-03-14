@@ -38,7 +38,7 @@ jobs:
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - name: Check outputs
       run: echo ${{ steps.vars.outputs.sha_short }}
-    - name: Create pull request to test
+    - name: Create pull request 
       uses: paygoc6/action-pull-request-another-repo@v1.0.1
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
