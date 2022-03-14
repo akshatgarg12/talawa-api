@@ -64,7 +64,7 @@ jobs:
           ./.github/workflows/check-jsdocs-comment.py
 
       - name : "Run JSDocs"   
-        if: env.RUN_JSDOCS == 'True'
+        if: env.RUN_JSDOCS == 'True' && github.event.pull_request.merged == true
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./lib
