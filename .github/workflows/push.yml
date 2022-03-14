@@ -22,36 +22,7 @@ jobs:
 # This section is added so that the most recent and valid level of 
 # code coverage (post PR merge) is reported 
 ##############################################################################
-  JSDocs: 
-    name : Jsdocs generator
-    runs-on: ubuntu-latest 
-    uses: andstor/jsdoc-action@v1
-    with:
-      source_dir: ./lib
-      recurse: true
-      output_dir: ./out
-        
-  pull-request:
-    name : create pull request
-    needs: JSDocs
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
 
-    - name: Create pull request
-      uses: paygoc6/action-pull-request-another-repo@v1.0.1
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_folder: './out'
-        destination_repo: 'akshatgarg12/talawa-docs'
-        destination_folder: 'docs/talawa-api'
-        destination_base_branch: 'master'
-        destination_head_branch: 'master'
-        user_email: 'akshatarungarg78@gmail.com'
-        user_name: 'akshatgarg12'
-        
   Code-Coverage:
     name: Testing Application
     runs-on: ubuntu-latest
